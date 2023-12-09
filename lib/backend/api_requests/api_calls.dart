@@ -18,10 +18,11 @@ class ApiGroup {
 /// Start problem Group Code
 
 class ProblemGroup {
-  static String baseUrl = '124.53.141.143:8088/problem';
+  static String baseUrl = 'http://192.168.219.101:8088/problem';
   static Map<String, String> headers = {};
   static ProblemSearchCall problemSearchCall = ProblemSearchCall();
   static GetProblemDetailCall getProblemDetailCall = GetProblemDetailCall();
+  static TestCall testCall = TestCall();
 }
 
 class ProblemSearchCall {
@@ -57,7 +58,7 @@ class ProblemSearchCall {
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
-      encodeBodyUtf8: false,
+      encodeBodyUtf8: true,
       decodeUtf8: true,
       cache: false,
     );
@@ -71,6 +72,25 @@ class GetProblemDetailCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getProblemDetail',
       apiUrl: '${ProblemGroup.baseUrl}/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Accept': '*/*',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+class TestCall {
+  Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'test',
+      apiUrl: '${ProblemGroup.baseUrl}/test',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -88,7 +108,7 @@ class GetBookmarksCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getBookmarks',
-      apiUrl: '115.136.92.37:8080/bookmark',
+      apiUrl: '192.168.219.101:8088/bookmark',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -106,7 +126,7 @@ class GetProblemDetailTestCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProblemDetailTest',
-      apiUrl: '115.136.92.37:8080/problem/$id',
+      apiUrl: '127.0.0.1:8088/problem/$id',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
