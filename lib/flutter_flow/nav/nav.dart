@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -40,6 +41,55 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => const HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'apiTest',
+          path: '/apiTest',
+          builder: (context, params) => const ApiTestWidget(),
+        ),
+        FFRoute(
+          name: 'MainPage',
+          path: '/mainPage',
+          builder: (context, params) => const MainPageWidget(),
+        ),
+        FFRoute(
+          name: 'SetCondition',
+          path: '/setCondition',
+          builder: (context, params) => SetConditionWidget(
+            selectedTag:
+                params.getParam<String>('selectedTag', ParamType.String, true),
+            concat: params.getParam('concat', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'tagPage',
+          path: '/tagPage',
+          builder: (context, params) => const TagPageWidget(),
+        ),
+        FFRoute(
+          name: 'setTimer',
+          path: '/setTimer',
+          builder: (context, params) => const SetTimerWidget(),
+        ),
+        FFRoute(
+          name: 'searchResult',
+          path: '/searchResult',
+          builder: (context, params) => const SearchResultWidget(),
+        ),
+        FFRoute(
+          name: 'problemDetail',
+          path: '/problemDetail',
+          builder: (context, params) => const ProblemDetailWidget(),
+        ),
+        FFRoute(
+          name: 'challengeProblem',
+          path: '/challengeProblem',
+          builder: (context, params) => const ChallengeProblemWidget(),
+        ),
+        FFRoute(
+          name: 'clearProblem',
+          path: '/clearProblem',
+          builder: (context, params) => const ClearProblemWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

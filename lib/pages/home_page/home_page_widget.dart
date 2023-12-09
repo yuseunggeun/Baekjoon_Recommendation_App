@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -41,6 +43,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -107,6 +111,124 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     ),
                   ),
                 ],
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  context.pushNamed('apiTest');
+                },
+                text: 'Button',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: const BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  context.pushNamed(
+                    'SetCondition',
+                    queryParameters: {
+                      'selectedTag': serializeParam(
+                        ["null"],
+                        ParamType.String,
+                        true,
+                      ),
+                    }.withoutNulls,
+                  );
+                },
+                text: '검색 조건 설정',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: const BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  context.pushNamed('setTimer');
+                },
+                text: '타이머 설정',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: const BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  context.pushNamed('searchResult');
+                },
+                text: '문제 검색',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: const BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              Text(
+                FFAppState().searchCondition.maxDifficulty.toString(),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                child: Text(
+                  valueOrDefault<String>(
+                    FFAppState().searchCondition.tags.toList().toString(),
+                    'null',
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: const Color(0x6114181B),
+                      ),
+                ),
               ),
             ],
           ),

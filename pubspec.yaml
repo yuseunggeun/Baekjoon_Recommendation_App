@@ -25,8 +25,10 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  aligned_dialog: 0.0.6
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
+  equatable: 2.0.5
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.1
   font_awesome_flutter: 10.6.0
@@ -35,11 +37,13 @@ dependencies:
   google_fonts: 4.0.3
   intl: 0.18.1
   json_path: 0.6.2
+  mime_type: 1.0.0
   page_transition: 2.1.0
   path_provider: 2.0.14
   path_provider_android: 2.0.25
   path_provider_foundation: 2.2.2
   path_provider_platform_interface: 2.0.6
+  percent_indicator: 4.2.2
   provider: 6.0.5
   shared_preferences: 2.2.2
   shared_preferences_android: 2.2.1
@@ -47,6 +51,7 @@ dependencies:
   shared_preferences_platform_interface: 2.3.1
   shared_preferences_web: 2.2.1
   sqflite: 2.2.6
+  stop_watch_timer: 3.0.2
   timeago: 3.2.2
   url_launcher: 6.1.10
   url_launcher_android: 6.0.27
