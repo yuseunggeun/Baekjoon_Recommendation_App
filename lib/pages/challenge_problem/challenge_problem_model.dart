@@ -14,6 +14,12 @@ class ChallengeProblemModel extends FlutterFlowModel<ChallengeProblemWidget> {
   FlutterFlowTimerController solveTimerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // State field(s) for tagTimer widget.
+  int tagTimerMilliseconds = 0;
+  String tagTimerValue = StopWatchTimer.getDisplayTime(0, milliSecond: false);
+  FlutterFlowTimerController tagTimerController =
+      FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
+
   /// Initialization and disposal methods.
 
   @override
@@ -23,6 +29,7 @@ class ChallengeProblemModel extends FlutterFlowModel<ChallengeProblemWidget> {
   void dispose() {
     unfocusNode.dispose();
     solveTimerController.dispose();
+    tagTimerController.dispose();
   }
 
   /// Action blocks are added here.

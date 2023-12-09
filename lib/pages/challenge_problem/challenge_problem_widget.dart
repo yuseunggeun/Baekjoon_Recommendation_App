@@ -12,7 +12,20 @@ import 'challenge_problem_model.dart';
 export 'challenge_problem_model.dart';
 
 class ChallengeProblemWidget extends StatefulWidget {
-  const ChallengeProblemWidget({super.key});
+  const ChallengeProblemWidget({
+    super.key,
+    required this.title,
+    required this.problemId,
+    required this.difficulty,
+    required this.tags,
+    bool? tagOpen,
+  })  : tagOpen = tagOpen ?? false;
+
+  final String? title;
+  final int? problemId;
+  final int? difficulty;
+  final List<String>? tags;
+  final bool tagOpen;
 
   @override
   _ChallengeProblemWidgetState createState() => _ChallengeProblemWidgetState();
@@ -83,7 +96,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FlutterFlowTimer(
                         initialTime: FFAppState().solveTimer.solveTime.ms,
@@ -95,6 +108,26 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                         onChanged: (value, displayTime, shouldUpdate) {
                           _model.solveTimerMilliseconds = value;
                           _model.solveTimerValue = displayTime;
+                          if (shouldUpdate) setState(() {});
+                        },
+                        textAlign: TextAlign.start,
+                        style:
+                            FlutterFlowTheme.of(context).headlineSmall.override(
+                                  fontFamily: 'Outfit',
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                      ),
+                      FlutterFlowTimer(
+                        initialTime: FFAppState().solveTimer.tagTime.ms,
+                        getDisplayTime: (value) =>
+                            StopWatchTimer.getDisplayTime(value,
+                                milliSecond: false),
+                        controller: _model.tagTimerController,
+                        updateStateInterval: const Duration(milliseconds: 1000),
+                        onChanged: (value, displayTime, shouldUpdate) {
+                          _model.tagTimerMilliseconds = value;
+                          _model.tagTimerValue = displayTime;
                           if (shouldUpdate) setState(() {});
                         },
                         textAlign: TextAlign.start,
@@ -124,6 +157,55 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                 fontSize: 40.0,
                               ),
                     ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        valueOrDefault<String>(
+                          widget.difficulty?.toString(),
+                          '0',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 20.0,
+                            ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        valueOrDefault<String>(
+                          widget.title,
+                          'null',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 30.0,
+                            ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        valueOrDefault<String>(
+                          widget.problemId?.toString(),
+                          '0',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: const Color(0xFF353539),
+                              fontSize: 20.0,
+                            ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding:
@@ -155,6 +237,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                               ),
                               onPressed: () async {
                                 _model.solveTimerController.onStartTimer();
+                                _model.tagTimerController.onStartTimer();
                               },
                             ),
                             FlutterFlowIconButton(
@@ -168,6 +251,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                               ),
                               onPressed: () async {
                                 _model.solveTimerController.onStopTimer();
+                                _model.tagTimerController.onStopTimer();
                               },
                             ),
                           ],
@@ -175,86 +259,90 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                       ],
                     ),
                   ),
-                  const Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '태그 목록',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                        if (!widget.tagOpen)
+                          FlutterFlowIconButton(
+                            borderRadius: 20.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            icon: Icon(
+                              Icons.lock_outline,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                      ],
+                    ),
                   ),
-                  const Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                  const Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                  Row(
+                ],
+              ),
+              if (widget.tagOpen && (_model.tagTimerMilliseconds <= 0))
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                  child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Hello World',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              _model.solveTimerController.onStopTimer();
-                            },
-                            text: '타이머 중지',
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                        child: Text(
+                          widget.tags!.toList().toString(),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
-                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                          FFButtonWidget(
-                            onPressed: () async {
-                              _model.solveTimerController.onStartTimer();
-                            },
-                            text: '타이머 시작',
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
-                ],
+                ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () {
+                    print('Button pressed ...');
+                  },
+                  text: '문제 해결',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
               ),
             ],
           ),

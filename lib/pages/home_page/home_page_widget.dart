@@ -168,9 +168,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               FFButtonWidget(
-                onPressed: () async {
-                  context.pushNamed('setTimer');
-                },
+                onPressed: () async {},
                 text: '타이머 설정',
                 options: FFButtonOptions(
                   height: 40.0,

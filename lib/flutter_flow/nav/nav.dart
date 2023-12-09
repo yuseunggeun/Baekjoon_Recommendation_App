@@ -69,7 +69,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'setTimer',
           path: '/setTimer',
-          builder: (context, params) => const SetTimerWidget(),
+          builder: (context, params) => SetTimerWidget(
+            title: params.getParam('title', ParamType.String),
+            difficulty: params.getParam('difficulty', ParamType.int),
+            problemId: params.getParam('problemId', ParamType.int),
+            tags: params.getParam<String>('tags', ParamType.String, true),
+          ),
         ),
         FFRoute(
           name: 'searchResult',
@@ -79,12 +84,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'problemDetail',
           path: '/problemDetail',
-          builder: (context, params) => const ProblemDetailWidget(),
+          builder: (context, params) => ProblemDetailWidget(
+            problemId: params.getParam('problemId', ParamType.int),
+            difficulty: params.getParam('difficulty', ParamType.int),
+            title: params.getParam('title', ParamType.String),
+            tags: params.getParam<String>('tags', ParamType.String, true),
+          ),
         ),
         FFRoute(
           name: 'challengeProblem',
           path: '/challengeProblem',
-          builder: (context, params) => const ChallengeProblemWidget(),
+          builder: (context, params) => ChallengeProblemWidget(
+            title: params.getParam('title', ParamType.String),
+            problemId: params.getParam('problemId', ParamType.int),
+            difficulty: params.getParam('difficulty', ParamType.int),
+            tags: params.getParam<String>('tags', ParamType.String, true),
+            tagOpen: params.getParam('tagOpen', ParamType.bool),
+          ),
         ),
         FFRoute(
           name: 'clearProblem',

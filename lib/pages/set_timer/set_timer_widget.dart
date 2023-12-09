@@ -1,20 +1,29 @@
 import '/components/set_solve_time_popup_widget.dart';
 import '/components/set_tag_time_popup_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'set_timer_model.dart';
 export 'set_timer_model.dart';
 
 class SetTimerWidget extends StatefulWidget {
-  const SetTimerWidget({super.key});
+  const SetTimerWidget({
+    super.key,
+    required this.title,
+    required this.difficulty,
+    required this.problemId,
+    required this.tags,
+  });
+
+  final String? title;
+  final int? difficulty;
+  final int? problemId;
+  final List<String>? tags;
 
   @override
   _SetTimerWidgetState createState() => _SetTimerWidgetState();
@@ -29,13 +38,6 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SetTimerModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.timerController.onResetTimer();
-    });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -68,8 +70,22 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: const Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              context.pop();
+            },
+          ),
           title: Text(
-            'Page Title',
+            '타이머 설정',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -89,24 +105,17 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FlutterFlowTimer(
-                    initialTime: _model.timerMilliseconds,
-                    getDisplayTime: (value) => StopWatchTimer.getDisplayTime(
-                        value,
-                        milliSecond: false),
-                    controller: _model.timerController,
-                    updateStateInterval: const Duration(milliseconds: 1000),
-                    onChanged: (value, displayTime, shouldUpdate) {
-                      _model.timerMilliseconds = value;
-                      _model.timerValue = displayTime;
-                      if (shouldUpdate) setState(() {});
-                    },
-                    textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily: 'Outfit',
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.w500,
-                        ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Text(
+                      '문제 풀이 시간을 설정합니다',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
                   ),
                 ],
               ),
@@ -124,14 +133,29 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello World',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          valueOrDefault<String>(
+                            widget.title,
+                            'null',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                  ),
                         ),
                         Text(
-                          'Hello World',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          valueOrDefault<String>(
+                            widget.problemId?.toString(),
+                            '0',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 18.0,
+                                  ),
                         ),
                       ],
                     ),
@@ -358,7 +382,32 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('challengeProblem');
+                    context.pushNamed(
+                      'challengeProblem',
+                      queryParameters: {
+                        'title': serializeParam(
+                          widget.title,
+                          ParamType.String,
+                        ),
+                        'problemId': serializeParam(
+                          widget.problemId,
+                          ParamType.int,
+                        ),
+                        'difficulty': serializeParam(
+                          widget.difficulty,
+                          ParamType.int,
+                        ),
+                        'tags': serializeParam(
+                          widget.tags,
+                          ParamType.String,
+                          true,
+                        ),
+                        'tagOpen': serializeParam(
+                          _model.switchValue,
+                          ParamType.bool,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   text: '문제 풀이',
                   options: FFButtonOptions(

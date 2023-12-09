@@ -18,7 +18,7 @@ class ApiGroup {
 /// Start problem Group Code
 
 class ProblemGroup {
-  static String baseUrl = 'http://192.168.219.101:8088/problem';
+  static String baseUrl = 'http://localhost:8088/problem';
   static Map<String, String> headers = {};
   static ProblemSearchCall problemSearchCall = ProblemSearchCall();
   static GetProblemDetailCall getProblemDetailCall = GetProblemDetailCall();
@@ -73,10 +73,7 @@ class GetProblemDetailCall {
       callName: 'getProblemDetail',
       apiUrl: '${ProblemGroup.baseUrl}/$id',
       callType: ApiCallType.GET,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Accept': '*/*',
-      },
+      headers: {},
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -126,9 +123,11 @@ class GetProblemDetailTestCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProblemDetailTest',
-      apiUrl: '127.0.0.1:8088/problem/$id',
+      apiUrl: 'http://localhost:8088/problem/$id',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Content-Type': 'application/json',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,

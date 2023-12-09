@@ -115,44 +115,137 @@ class _SearchResultWidgetState extends State<SearchResultWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Builder(
-                builder: (context) {
-                  final searchResult = _model.resultList.toList();
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: searchResult.length,
-                    itemBuilder: (context, searchResultIndex) {
-                      final searchResultItem = searchResult[searchResultIndex];
-                      return Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              searchResultIndex.toString(),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              getJsonField(
-                                searchResultItem,
-                                r'''$["title"]''',
-                              ).toString(),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
+              Expanded(
+                child: Builder(
+                  builder: (context) {
+                    final searchResult = _model.resultList.toList();
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: searchResult.length,
+                      itemBuilder: (context, searchResultIndex) {
+                        final searchResultItem =
+                            searchResult[searchResultIndex];
+                        return InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'problemDetail',
+                              queryParameters: {
+                                'problemId': serializeParam(
+                                  getJsonField(
+                                    searchResultItem,
+                                    r'''$["id"]''',
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'difficulty': serializeParam(
+                                  getJsonField(
+                                    searchResultItem,
+                                    r'''$["difficulty"]''',
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'title': serializeParam(
+                                  getJsonField(
+                                    searchResultItem,
+                                    r'''$["title"]''',
+                                  ).toString(),
+                                  ParamType.String,
+                                ),
+                                'tags': serializeParam(
+                                  (getJsonField(
+                                    searchResultItem,
+                                    r'''$["tags"]''',
+                                    true,
+                                  ) as List)
+                                      .map<String>((s) => s.toString())
+                                      .toList(),
+                                  ParamType.String,
+                                  true,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Text(
+                                  getJsonField(
+                                    searchResultItem,
+                                    r'''$["difficulty"]''',
+                                  ).toString(),
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 24.0,
+                                      ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 133.0,
+                                    height: 36.0,
+                                    decoration: const BoxDecoration(),
+                                    child: Text(
+                                      getJsonField(
+                                        searchResultItem,
+                                        r'''$["title"]''',
+                                      ).toString(),
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 20.0,
+                                          ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 137.0,
+                                    height: 33.0,
+                                    decoration: const BoxDecoration(),
+                                    child: Text(
+                                      getJsonField(
+                                        searchResultItem,
+                                        r'''$["id"]''',
+                                      ).toString(),
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: const BoxDecoration(
+                                  color: Color(0x18FFFFFF),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ],
           ),
