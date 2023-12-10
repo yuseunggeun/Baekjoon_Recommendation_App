@@ -106,6 +106,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'clearProblem',
           path: '/clearProblem',
           builder: (context, params) => const ClearProblemWidget(),
+        ),
+        FFRoute(
+          name: 'challengeSuccess',
+          path: '/challengeSuccess',
+          builder: (context, params) => ChallengeSuccessWidget(
+            difficulty: params.getParam('difficulty', ParamType.int),
+          ),
+        ),
+        FFRoute(
+          name: 'challengeFail',
+          path: '/challengeFail',
+          builder: (context, params) => const ChallengeFailWidget(),
+        ),
+        FFRoute(
+          name: 'test',
+          path: '/test',
+          builder: (context, params) => const TestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -320,8 +320,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    context.pushNamed('challengeSuccess');
                   },
                   text: '문제 해결',
                   options: FFButtonOptions(

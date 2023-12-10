@@ -11,3 +11,8 @@ export '/pages/problem_detail/problem_detail_widget.dart'
 export '/pages/challenge_problem/challenge_problem_widget.dart'
     show ChallengeProblemWidget;
 export '/pages/clear_problem/clear_problem_widget.dart' show ClearProblemWidget;
+export '/pages/challenge_success/challenge_success_widget.dart'
+    show ChallengeSuccessWidget;
+export '/pages/challenge_fail/challenge_fail_widget.dart'
+    show ChallengeFailWidget;
+export '/pages/test/test_widget.dart' show TestWidget;
