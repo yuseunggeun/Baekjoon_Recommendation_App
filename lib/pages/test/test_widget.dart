@@ -1,5 +1,14 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/tier_img/tier01/tier01_widget.dart';
+import '/tier_img/tier02/tier02_widget.dart';
+import '/tier_img/tier03/tier03_widget.dart';
+import '/tier_img/tier04/tier04_widget.dart';
+import '/tier_img/tier05/tier05_widget.dart';
+import '/tier_img/tier06/tier06_widget.dart';
+import '/tier_img/tier07/tier07_widget.dart';
+import '/tier_img/tier08/tier08_widget.dart';
+import '/tier_img/tier09/tier09_widget.dart';
 import '/tier_img/tier1/tier1_widget.dart';
 import '/tier_img/tier10/tier10_widget.dart';
 import '/tier_img/tier11/tier11_widget.dart';
@@ -139,6 +148,16 @@ class _TestWidgetState extends State<TestWidget> {
                     updateCallback: () => setState(() {}),
                     child: const Tier26Widget(),
                   ),
+                  wrapWithModel(
+                    model: _model.tier01Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier01Widget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.tier06Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier06Widget(),
+                  ),
                 ],
               ),
               Column(
@@ -173,6 +192,16 @@ class _TestWidgetState extends State<TestWidget> {
                     model: _model.tier27Model,
                     updateCallback: () => setState(() {}),
                     child: const Tier27Widget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.tier02Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier02Widget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.tier07Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier07Widget(),
                   ),
                 ],
               ),
@@ -209,6 +238,16 @@ class _TestWidgetState extends State<TestWidget> {
                     updateCallback: () => setState(() {}),
                     child: const Tier28Widget(),
                   ),
+                  wrapWithModel(
+                    model: _model.tier03Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier03Widget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.tier08Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier08Widget(),
+                  ),
                 ],
               ),
               Column(
@@ -244,6 +283,16 @@ class _TestWidgetState extends State<TestWidget> {
                     updateCallback: () => setState(() {}),
                     child: const Tier29Widget(),
                   ),
+                  wrapWithModel(
+                    model: _model.tier04Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier04Widget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.tier09Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier09Widget(),
+                  ),
                 ],
               ),
               Column(
@@ -278,6 +327,20 @@ class _TestWidgetState extends State<TestWidget> {
                     model: _model.tier30Model,
                     updateCallback: () => setState(() {}),
                     child: const Tier30Widget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.tier05Model,
+                    updateCallback: () => setState(() {}),
+                    child: const Tier05Widget(),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/01.png',
+                      width: 62.0,
+                      height: 76.0,
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
                 ],
               ),
