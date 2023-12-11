@@ -1,5 +1,13 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/tier_img/tier1/tier1_widget.dart';
+import '/tier_img/tier01/tier01_widget.dart';
+import '/tier_img/tier02/tier02_widget.dart';
+import '/tier_img/tier03/tier03_widget.dart';
+import '/tier_img/tier04/tier04_widget.dart';
+import '/tier_img/tier05/tier05_widget.dart';
+import '/tier_img/tier06/tier06_widget.dart';
+import '/tier_img/tier07/tier07_widget.dart';
+import '/tier_img/tier08/tier08_widget.dart';
+import '/tier_img/tier09/tier09_widget.dart';
 import '/tier_img/tier10/tier10_widget.dart';
 import '/tier_img/tier11/tier11_widget.dart';
 import '/tier_img/tier12/tier12_widget.dart';
@@ -10,7 +18,6 @@ import '/tier_img/tier16/tier16_widget.dart';
 import '/tier_img/tier17/tier17_widget.dart';
 import '/tier_img/tier18/tier18_widget.dart';
 import '/tier_img/tier19/tier19_widget.dart';
-import '/tier_img/tier2/tier2_widget.dart';
 import '/tier_img/tier20/tier20_widget.dart';
 import '/tier_img/tier21/tier21_widget.dart';
 import '/tier_img/tier22/tier22_widget.dart';
@@ -21,14 +28,7 @@ import '/tier_img/tier26/tier26_widget.dart';
 import '/tier_img/tier27/tier27_widget.dart';
 import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
-import '/tier_img/tier3/tier3_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
-import '/tier_img/tier4/tier4_widget.dart';
-import '/tier_img/tier5/tier5_widget.dart';
-import '/tier_img/tier6/tier6_widget.dart';
-import '/tier_img/tier7/tier7_widget.dart';
-import '/tier_img/tier8/tier8_widget.dart';
-import '/tier_img/tier9/tier9_widget.dart';
 import 'challenge_success_widget.dart' show ChallengeSuccessWidget;
 import 'package:flutter/material.dart';
 
@@ -36,24 +36,24 @@ class ChallengeSuccessModel extends FlutterFlowModel<ChallengeSuccessWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for tier1 component.
-  late Tier1Model tier1Model;
-  // Model for tier2 component.
-  late Tier2Model tier2Model;
-  // Model for tier3 component.
-  late Tier3Model tier3Model;
-  // Model for tier4 component.
-  late Tier4Model tier4Model;
-  // Model for tier5 component.
-  late Tier5Model tier5Model;
-  // Model for tier6 component.
-  late Tier6Model tier6Model;
-  // Model for tier7 component.
-  late Tier7Model tier7Model;
-  // Model for tier8 component.
-  late Tier8Model tier8Model;
-  // Model for tier9 component.
-  late Tier9Model tier9Model;
+  // Model for tier01 component.
+  late Tier01Model tier01Model;
+  // Model for tier02 component.
+  late Tier02Model tier02Model;
+  // Model for tier03 component.
+  late Tier03Model tier03Model;
+  // Model for tier04 component.
+  late Tier04Model tier04Model;
+  // Model for tier05 component.
+  late Tier05Model tier05Model;
+  // Model for tier06 component.
+  late Tier06Model tier06Model;
+  // Model for tier07 component.
+  late Tier07Model tier07Model;
+  // Model for tier08 component.
+  late Tier08Model tier08Model;
+  // Model for tier09 component.
+  late Tier09Model tier09Model;
   // Model for tier10 component.
   late Tier10Model tier10Model;
   // Model for tier11 component.
@@ -101,15 +101,15 @@ class ChallengeSuccessModel extends FlutterFlowModel<ChallengeSuccessWidget> {
 
   @override
   void initState(BuildContext context) {
-    tier1Model = createModel(context, () => Tier1Model());
-    tier2Model = createModel(context, () => Tier2Model());
-    tier3Model = createModel(context, () => Tier3Model());
-    tier4Model = createModel(context, () => Tier4Model());
-    tier5Model = createModel(context, () => Tier5Model());
-    tier6Model = createModel(context, () => Tier6Model());
-    tier7Model = createModel(context, () => Tier7Model());
-    tier8Model = createModel(context, () => Tier8Model());
-    tier9Model = createModel(context, () => Tier9Model());
+    tier01Model = createModel(context, () => Tier01Model());
+    tier02Model = createModel(context, () => Tier02Model());
+    tier03Model = createModel(context, () => Tier03Model());
+    tier04Model = createModel(context, () => Tier04Model());
+    tier05Model = createModel(context, () => Tier05Model());
+    tier06Model = createModel(context, () => Tier06Model());
+    tier07Model = createModel(context, () => Tier07Model());
+    tier08Model = createModel(context, () => Tier08Model());
+    tier09Model = createModel(context, () => Tier09Model());
     tier10Model = createModel(context, () => Tier10Model());
     tier11Model = createModel(context, () => Tier11Model());
     tier12Model = createModel(context, () => Tier12Model());
@@ -136,15 +136,15 @@ class ChallengeSuccessModel extends FlutterFlowModel<ChallengeSuccessWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    tier1Model.dispose();
-    tier2Model.dispose();
-    tier3Model.dispose();
-    tier4Model.dispose();
-    tier5Model.dispose();
-    tier6Model.dispose();
-    tier7Model.dispose();
-    tier8Model.dispose();
-    tier9Model.dispose();
+    tier01Model.dispose();
+    tier02Model.dispose();
+    tier03Model.dispose();
+    tier04Model.dispose();
+    tier05Model.dispose();
+    tier06Model.dispose();
+    tier07Model.dispose();
+    tier08Model.dispose();
+    tier09Model.dispose();
     tier10Model.dispose();
     tier11Model.dispose();
     tier12Model.dispose();

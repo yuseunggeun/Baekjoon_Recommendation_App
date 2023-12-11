@@ -6,15 +6,6 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-/// Start api Group Code
-
-class ApiGroup {
-  static String baseUrl = '124.53.141.143:8080';
-  static Map<String, String> headers = {};
-}
-
-/// End api Group Code
-
 /// Start problem Group Code
 
 class ProblemGroup {
@@ -101,32 +92,99 @@ class TestCall {
 
 /// End problem Group Code
 
-class GetBookmarksCall {
-  static Future<ApiCallResponse> call() async {
+/// Start user Group Code
+
+class UserGroup {
+  static String baseUrl = 'http://localhost:8088/user';
+  static Map<String, String> headers = {};
+  static LoginCall loginCall = LoginCall();
+  static SignupCall signupCall = SignupCall();
+}
+
+class LoginCall {
+  Future<ApiCallResponse> call({
+    String? userId = '',
+    String? password = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "userId": "$userId",
+  "password": "$password"
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'getBookmarks',
-      apiUrl: '192.168.219.101:8088/bookmark',
-      callType: ApiCallType.GET,
+      callName: 'login',
+      apiUrl: '${UserGroup.baseUrl}/login',
+      callType: ApiCallType.POST,
       headers: {},
       params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
+      encodeBodyUtf8: true,
+      decodeUtf8: true,
       cache: false,
     );
   }
 }
 
-class GetProblemDetailTestCall {
-  static Future<ApiCallResponse> call({
-    int? id,
+class SignupCall {
+  Future<ApiCallResponse> call({
+    String? userId = '',
+    String? password = '',
+    String? name = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "userId": "$userId",
+  "password": "$password",
+  "name": "$name"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'signup',
+      apiUrl: '${UserGroup.baseUrl}/signup',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: true,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+/// End user Group Code
+
+/// Start bookmark Group Code
+
+class BookmarkGroup {
+  static String baseUrl = 'localhost:8088/bookmark';
+  static Map<String, String> headers = {
+    'userId': '[userId]',
+    'password': '[password]',
+  };
+  static GetBookmarkCall getBookmarkCall = GetBookmarkCall();
+  static GetBookamarkDetailCall getBookamarkDetailCall =
+      GetBookamarkDetailCall();
+  static AddBookmarkCall addBookmarkCall = AddBookmarkCall();
+  static DeleteBookmarkCall deleteBookmarkCall = DeleteBookmarkCall();
+  static UpdateBookmarkCall updateBookmarkCall = UpdateBookmarkCall();
+}
+
+class GetBookmarkCall {
+  Future<ApiCallResponse> call({
+    String? userId = '',
+    String? password = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'getProblemDetailTest',
-      apiUrl: 'http://localhost:8088/problem/$id',
+      callName: 'getBookmark',
+      apiUrl: '${BookmarkGroup.baseUrl}/bookmarks',
       callType: ApiCallType.GET,
       headers: {
-        'Content-Type': 'application/json',
+        'userId': '$userId',
+        'password': '$password',
       },
       params: {},
       returnBody: true,
@@ -136,6 +194,131 @@ class GetProblemDetailTestCall {
     );
   }
 }
+
+class GetBookamarkDetailCall {
+  Future<ApiCallResponse> call({
+    int? bookmarkId,
+    String? userId = '',
+    String? password = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getBookamarkDetail',
+      apiUrl: '${BookmarkGroup.baseUrl}/$bookmarkId',
+      callType: ApiCallType.GET,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+class AddBookmarkCall {
+  Future<ApiCallResponse> call({
+    int? problemId,
+    String? title = '',
+    int? difficulty,
+    int? solveCount,
+    String? userId = '',
+    String? password = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "problemId": $problemId,
+  "title": "$title",
+  "difficulty": $difficulty,
+  "solveCount": $solveCount
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'addBookmark',
+      apiUrl: '${BookmarkGroup.baseUrl}/$problemId',
+      callType: ApiCallType.POST,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: true,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+class DeleteBookmarkCall {
+  Future<ApiCallResponse> call({
+    int? bookmarkId,
+    String? userId = '',
+    String? password = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'deleteBookmark',
+      apiUrl: '${BookmarkGroup.baseUrl}/$bookmarkId',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+class UpdateBookmarkCall {
+  Future<ApiCallResponse> call({
+    int? bookmarkId,
+    String? memo = '',
+    String? userId = '',
+    String? password = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "memo": "$memo"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'updateBookmark',
+      apiUrl: '${BookmarkGroup.baseUrl}/$bookmarkId',
+      callType: ApiCallType.PUT,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+/// End bookmark Group Code
+
+/// Start solved Group Code
+
+class SolvedGroup {
+  static String baseUrl = 'localhost:8088/solved';
+  static Map<String, String> headers = {
+    'userId': '[userId]',
+    'password': '[password]',
+  };
+}
+
+/// End solved Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

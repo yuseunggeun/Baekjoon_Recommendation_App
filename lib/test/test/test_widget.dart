@@ -9,7 +9,6 @@ import '/tier_img/tier06/tier06_widget.dart';
 import '/tier_img/tier07/tier07_widget.dart';
 import '/tier_img/tier08/tier08_widget.dart';
 import '/tier_img/tier09/tier09_widget.dart';
-import '/tier_img/tier1/tier1_widget.dart';
 import '/tier_img/tier10/tier10_widget.dart';
 import '/tier_img/tier11/tier11_widget.dart';
 import '/tier_img/tier12/tier12_widget.dart';
@@ -20,7 +19,6 @@ import '/tier_img/tier16/tier16_widget.dart';
 import '/tier_img/tier17/tier17_widget.dart';
 import '/tier_img/tier18/tier18_widget.dart';
 import '/tier_img/tier19/tier19_widget.dart';
-import '/tier_img/tier2/tier2_widget.dart';
 import '/tier_img/tier20/tier20_widget.dart';
 import '/tier_img/tier21/tier21_widget.dart';
 import '/tier_img/tier22/tier22_widget.dart';
@@ -31,14 +29,7 @@ import '/tier_img/tier26/tier26_widget.dart';
 import '/tier_img/tier27/tier27_widget.dart';
 import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
-import '/tier_img/tier3/tier3_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
-import '/tier_img/tier4/tier4_widget.dart';
-import '/tier_img/tier5/tier5_widget.dart';
-import '/tier_img/tier6/tier6_widget.dart';
-import '/tier_img/tier7/tier7_widget.dart';
-import '/tier_img/tier8/tier8_widget.dart';
-import '/tier_img/tier9/tier9_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -113,20 +104,9 @@ class _TestWidgetState extends State<TestWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Column(
+                  const Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
-                      wrapWithModel(
-                        model: _model.tier1Model,
-                        updateCallback: () => setState(() {}),
-                        child: const Tier1Widget(),
-                      ),
-                    ],
-                  ),
-                  wrapWithModel(
-                    model: _model.tier6Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier6Widget(),
+                    children: [],
                   ),
                   wrapWithModel(
                     model: _model.tier11Model,
@@ -164,16 +144,6 @@ class _TestWidgetState extends State<TestWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   wrapWithModel(
-                    model: _model.tier2Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier2Widget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.tier7Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier7Widget(),
-                  ),
-                  wrapWithModel(
                     model: _model.tier12Model,
                     updateCallback: () => setState(() {}),
                     child: const Tier12Widget(),
@@ -208,16 +178,6 @@ class _TestWidgetState extends State<TestWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  wrapWithModel(
-                    model: _model.tier3Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier3Widget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.tier8Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier8Widget(),
-                  ),
                   wrapWithModel(
                     model: _model.tier13Model,
                     updateCallback: () => setState(() {}),
@@ -254,16 +214,6 @@ class _TestWidgetState extends State<TestWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   wrapWithModel(
-                    model: _model.tier4Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier4Widget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.tier9Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier9Widget(),
-                  ),
-                  wrapWithModel(
                     model: _model.tier14Model,
                     updateCallback: () => setState(() {}),
                     child: const Tier14Widget(),
@@ -298,11 +248,6 @@ class _TestWidgetState extends State<TestWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  wrapWithModel(
-                    model: _model.tier5Model,
-                    updateCallback: () => setState(() {}),
-                    child: const Tier5Widget(),
-                  ),
                   wrapWithModel(
                     model: _model.tier10Model,
                     updateCallback: () => setState(() {}),

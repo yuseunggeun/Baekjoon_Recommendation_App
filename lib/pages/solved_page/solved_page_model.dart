@@ -1,15 +1,21 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'tier2_widget.dart' show Tier2Widget;
+import 'solved_page_widget.dart' show SolvedPageWidget;
 import 'package:flutter/material.dart';
 
-class Tier2Model extends FlutterFlowModel<Tier2Widget> {
+class SolvedPageModel extends FlutterFlowModel<SolvedPageWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    unfocusNode.dispose();
+  }
 
   /// Action blocks are added here.
 

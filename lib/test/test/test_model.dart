@@ -8,7 +8,6 @@ import '/tier_img/tier06/tier06_widget.dart';
 import '/tier_img/tier07/tier07_widget.dart';
 import '/tier_img/tier08/tier08_widget.dart';
 import '/tier_img/tier09/tier09_widget.dart';
-import '/tier_img/tier1/tier1_widget.dart';
 import '/tier_img/tier10/tier10_widget.dart';
 import '/tier_img/tier11/tier11_widget.dart';
 import '/tier_img/tier12/tier12_widget.dart';
@@ -19,7 +18,6 @@ import '/tier_img/tier16/tier16_widget.dart';
 import '/tier_img/tier17/tier17_widget.dart';
 import '/tier_img/tier18/tier18_widget.dart';
 import '/tier_img/tier19/tier19_widget.dart';
-import '/tier_img/tier2/tier2_widget.dart';
 import '/tier_img/tier20/tier20_widget.dart';
 import '/tier_img/tier21/tier21_widget.dart';
 import '/tier_img/tier22/tier22_widget.dart';
@@ -30,14 +28,7 @@ import '/tier_img/tier26/tier26_widget.dart';
 import '/tier_img/tier27/tier27_widget.dart';
 import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
-import '/tier_img/tier3/tier3_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
-import '/tier_img/tier4/tier4_widget.dart';
-import '/tier_img/tier5/tier5_widget.dart';
-import '/tier_img/tier6/tier6_widget.dart';
-import '/tier_img/tier7/tier7_widget.dart';
-import '/tier_img/tier8/tier8_widget.dart';
-import '/tier_img/tier9/tier9_widget.dart';
 import 'test_widget.dart' show TestWidget;
 import 'package:flutter/material.dart';
 
@@ -45,10 +36,6 @@ class TestModel extends FlutterFlowModel<TestWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for tier1 component.
-  late Tier1Model tier1Model;
-  // Model for tier6 component.
-  late Tier6Model tier6Model;
   // Model for tier11 component.
   late Tier11Model tier11Model;
   // Model for tier16 component.
@@ -61,10 +48,6 @@ class TestModel extends FlutterFlowModel<TestWidget> {
   late Tier01Model tier01Model;
   // Model for tier06 component.
   late Tier06Model tier06Model;
-  // Model for tier2 component.
-  late Tier2Model tier2Model;
-  // Model for tier7 component.
-  late Tier7Model tier7Model;
   // Model for tier12 component.
   late Tier12Model tier12Model;
   // Model for tier17 component.
@@ -77,10 +60,6 @@ class TestModel extends FlutterFlowModel<TestWidget> {
   late Tier02Model tier02Model;
   // Model for tier07 component.
   late Tier07Model tier07Model;
-  // Model for tier3 component.
-  late Tier3Model tier3Model;
-  // Model for tier8 component.
-  late Tier8Model tier8Model;
   // Model for tier13 component.
   late Tier13Model tier13Model;
   // Model for tier18 component.
@@ -93,10 +72,6 @@ class TestModel extends FlutterFlowModel<TestWidget> {
   late Tier03Model tier03Model;
   // Model for tier08 component.
   late Tier08Model tier08Model;
-  // Model for tier4 component.
-  late Tier4Model tier4Model;
-  // Model for tier9 component.
-  late Tier9Model tier9Model;
   // Model for tier14 component.
   late Tier14Model tier14Model;
   // Model for tier19 component.
@@ -109,8 +84,6 @@ class TestModel extends FlutterFlowModel<TestWidget> {
   late Tier04Model tier04Model;
   // Model for tier09 component.
   late Tier09Model tier09Model;
-  // Model for tier5 component.
-  late Tier5Model tier5Model;
   // Model for tier10 component.
   late Tier10Model tier10Model;
   // Model for tier15 component.
@@ -128,39 +101,30 @@ class TestModel extends FlutterFlowModel<TestWidget> {
 
   @override
   void initState(BuildContext context) {
-    tier1Model = createModel(context, () => Tier1Model());
-    tier6Model = createModel(context, () => Tier6Model());
     tier11Model = createModel(context, () => Tier11Model());
     tier16Model = createModel(context, () => Tier16Model());
     tier21Model = createModel(context, () => Tier21Model());
     tier26Model = createModel(context, () => Tier26Model());
     tier01Model = createModel(context, () => Tier01Model());
     tier06Model = createModel(context, () => Tier06Model());
-    tier2Model = createModel(context, () => Tier2Model());
-    tier7Model = createModel(context, () => Tier7Model());
     tier12Model = createModel(context, () => Tier12Model());
     tier17Model = createModel(context, () => Tier17Model());
     tier22Model = createModel(context, () => Tier22Model());
     tier27Model = createModel(context, () => Tier27Model());
     tier02Model = createModel(context, () => Tier02Model());
     tier07Model = createModel(context, () => Tier07Model());
-    tier3Model = createModel(context, () => Tier3Model());
-    tier8Model = createModel(context, () => Tier8Model());
     tier13Model = createModel(context, () => Tier13Model());
     tier18Model = createModel(context, () => Tier18Model());
     tier23Model = createModel(context, () => Tier23Model());
     tier28Model = createModel(context, () => Tier28Model());
     tier03Model = createModel(context, () => Tier03Model());
     tier08Model = createModel(context, () => Tier08Model());
-    tier4Model = createModel(context, () => Tier4Model());
-    tier9Model = createModel(context, () => Tier9Model());
     tier14Model = createModel(context, () => Tier14Model());
     tier19Model = createModel(context, () => Tier19Model());
     tier24Model = createModel(context, () => Tier24Model());
     tier29Model = createModel(context, () => Tier29Model());
     tier04Model = createModel(context, () => Tier04Model());
     tier09Model = createModel(context, () => Tier09Model());
-    tier5Model = createModel(context, () => Tier5Model());
     tier10Model = createModel(context, () => Tier10Model());
     tier15Model = createModel(context, () => Tier15Model());
     tier20Model = createModel(context, () => Tier20Model());
@@ -172,39 +136,30 @@ class TestModel extends FlutterFlowModel<TestWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    tier1Model.dispose();
-    tier6Model.dispose();
     tier11Model.dispose();
     tier16Model.dispose();
     tier21Model.dispose();
     tier26Model.dispose();
     tier01Model.dispose();
     tier06Model.dispose();
-    tier2Model.dispose();
-    tier7Model.dispose();
     tier12Model.dispose();
     tier17Model.dispose();
     tier22Model.dispose();
     tier27Model.dispose();
     tier02Model.dispose();
     tier07Model.dispose();
-    tier3Model.dispose();
-    tier8Model.dispose();
     tier13Model.dispose();
     tier18Model.dispose();
     tier23Model.dispose();
     tier28Model.dispose();
     tier03Model.dispose();
     tier08Model.dispose();
-    tier4Model.dispose();
-    tier9Model.dispose();
     tier14Model.dispose();
     tier19Model.dispose();
     tier24Model.dispose();
     tier29Model.dispose();
     tier04Model.dispose();
     tier09Model.dispose();
-    tier5Model.dispose();
     tier10Model.dispose();
     tier15Model.dispose();
     tier20Model.dispose();

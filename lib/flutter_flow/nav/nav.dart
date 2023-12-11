@@ -30,12 +30,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const HomePageWidget(),
+      errorBuilder: (context, state) => const LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const HomePageWidget(),
+          builder: (context, _) => const LoginPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -123,6 +123,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'test',
           path: '/test',
           builder: (context, params) => const TestWidget(),
+        ),
+        FFRoute(
+          name: 'loginPage',
+          path: '/loginPage',
+          builder: (context, params) => const LoginPageWidget(),
+        ),
+        FFRoute(
+          name: 'BookmarkPage',
+          path: '/bookmarkPage',
+          builder: (context, params) => const BookmarkPageWidget(),
+        ),
+        FFRoute(
+          name: 'SolvedPage',
+          path: '/solvedPage',
+          builder: (context, params) => const SolvedPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

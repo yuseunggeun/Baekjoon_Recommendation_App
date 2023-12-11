@@ -1,27 +1,28 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'challenge_fail_model.dart';
-export 'challenge_fail_model.dart';
+import 'solved_page_model.dart';
+export 'solved_page_model.dart';
 
-class ChallengeFailWidget extends StatefulWidget {
-  const ChallengeFailWidget({super.key});
+class SolvedPageWidget extends StatefulWidget {
+  const SolvedPageWidget({super.key});
 
   @override
-  _ChallengeFailWidgetState createState() => _ChallengeFailWidgetState();
+  _SolvedPageWidgetState createState() => _SolvedPageWidgetState();
 }
 
-class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
-  late ChallengeFailModel _model;
+class _SolvedPageWidgetState extends State<SolvedPageWidget> {
+  late SolvedPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ChallengeFailModel());
+    _model = createModel(context, () => SolvedPageModel());
   }
 
   @override
@@ -54,8 +55,22 @@ class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: const Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              context.pop();
+            },
+          ),
           title: Text(
-            '문제 풀이 실패',
+            '해결한 문제',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -65,6 +80,13 @@ class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
           actions: const [],
           centerTitle: false,
           elevation: 2.0,
+        ),
+        body: const SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [],
+          ),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 // Export pages
 export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/pages/api_test/api_test_widget.dart' show ApiTestWidget;
+export '/test/api_test/api_test_widget.dart' show ApiTestWidget;
 export '/pages/main_page/main_page_widget.dart' show MainPageWidget;
 export '/pages/set_condition/set_condition_widget.dart' show SetConditionWidget;
 export '/pages/tag_page/tag_page_widget.dart' show TagPageWidget;
@@ -15,4 +15,7 @@ export '/pages/challenge_success/challenge_success_widget.dart'
     show ChallengeSuccessWidget;
 export '/pages/challenge_fail/challenge_fail_widget.dart'
     show ChallengeFailWidget;
-export '/pages/test/test_widget.dart' show TestWidget;
+export '/test/test/test_widget.dart' show TestWidget;
+export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
+export '/pages/bookmark_page/bookmark_page_widget.dart' show BookmarkPageWidget;
+export '/pages/solved_page/solved_page_widget.dart' show SolvedPageWidget;

@@ -40,6 +40,17 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    _safeInit(() {
+      if (prefs.containsKey('ff_userData')) {
+        try {
+          final serializedData = prefs.getString('ff_userData') ?? '{}';
+          _userData =
+              UserDataStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -74,6 +85,19 @@ class FFAppState extends ChangeNotifier {
   void updateSolveTimerStruct(Function(SolveTimerStruct) updateFn) {
     updateFn(_solveTimer);
     prefs.setString('ff_solveTimer', _solveTimer.serialize());
+  }
+
+  UserDataStruct _userData = UserDataStruct.fromSerializableMap(jsonDecode(
+      '{"id":"0","userId":"0","password":"0","userName":"0"}'));
+  UserDataStruct get userData => _userData;
+  set userData(UserDataStruct value) {
+    _userData = value;
+    prefs.setString('ff_userData', value.serialize());
+  }
+
+  void updateUserDataStruct(Function(UserDataStruct) updateFn) {
+    updateFn(_userData);
+    prefs.setString('ff_userData', _userData.serialize());
   }
 }
 

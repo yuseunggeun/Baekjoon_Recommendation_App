@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_test_widget.dart' show ApiTestWidget;
 import 'package:flutter/material.dart';
@@ -11,8 +10,6 @@ class ApiTestModel extends FlutterFlowModel<ApiTestWidget> {
   FocusNode? numberFocusNode;
   TextEditingController? numberController;
   String? Function(BuildContext, String?)? numberControllerValidator;
-  // Stores action output result for [Backend Call - API (getProblemDetailTest)] action in Button widget.
-  ApiCallResponse? detailResponse;
 
   /// Initialization and disposal methods.
 
