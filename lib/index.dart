@@ -1,5 +1,5 @@
 // Export pages
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
+export '/test/home_page/home_page_widget.dart' show HomePageWidget;
 export '/test/api_test/api_test_widget.dart' show ApiTestWidget;
 export '/pages/main_page/main_page_widget.dart' show MainPageWidget;
 export '/pages/set_condition/set_condition_widget.dart' show SetConditionWidget;

@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/tier_img/tier01/tier01_widget.dart';
 import '/tier_img/tier02/tier02_widget.dart';
 import '/tier_img/tier03/tier03_widget.dart';
@@ -31,6 +32,7 @@ import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'challenge_success_model.dart';
@@ -40,9 +42,18 @@ class ChallengeSuccessWidget extends StatefulWidget {
   const ChallengeSuccessWidget({
     super.key,
     int? difficulty,
-  })  : difficulty = difficulty ?? 3;
+    String? title,
+    int? problemId,
+    int? successTime,
+  })  : difficulty = difficulty ?? 3,
+        title = title ?? 'null',
+        problemId = problemId ?? 0,
+        successTime = successTime ?? 0;
 
   final int difficulty;
+  final String title;
+  final int problemId;
+  final int successTime;
 
   @override
   _ChallengeSuccessWidgetState createState() => _ChallengeSuccessWidgetState();
@@ -57,6 +68,15 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChallengeSuccessModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.hour = (widget.successTime / 3600000).floor();
+        _model.min = (widget.successTime / 60000).floor();
+        _model.sec = (widget.successTime / 1000).floor();
+      });
+    });
   }
 
   @override
@@ -108,18 +128,39 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [],
-              ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
                 child: Text(
                   '축하합니다!',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 60.0,
                         fontWeight: FontWeight.w500,
+                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                child: Text(
+                  '${formatNumber(
+                    _model.hour,
+                    formatType: FormatType.custom,
+                    format: '00',
+                    locale: '',
+                  )}:${formatNumber(
+                    _model.min,
+                    formatType: FormatType.custom,
+                    format: '00',
+                    locale: '',
+                  )}:${formatNumber(
+                    _model.sec,
+                    formatType: FormatType.custom,
+                    format: '00',
+                    locale: '',
+                  )}',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 40.0,
                       ),
                 ),
               ),
@@ -318,6 +359,60 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                       );
                     }
                   },
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.title,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          fontSize: 30.0,
+                        ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.problemId.toString(),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          fontSize: 30.0,
+                        ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('MainPage');
+                  },
+                  text: '메인화면으로',
+                  options: FFButtonOptions(
+                    height: 76.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                          fontSize: 24.0,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
               ),
             ],

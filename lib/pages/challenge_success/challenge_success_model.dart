@@ -33,6 +33,14 @@ import 'challenge_success_widget.dart' show ChallengeSuccessWidget;
 import 'package:flutter/material.dart';
 
 class ChallengeSuccessModel extends FlutterFlowModel<ChallengeSuccessWidget> {
+  ///  Local state fields for this page.
+
+  int? hour = 0;
+
+  int? min = 0;
+
+  int? sec = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

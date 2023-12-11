@@ -160,7 +160,7 @@ class SignupCall {
 /// Start bookmark Group Code
 
 class BookmarkGroup {
-  static String baseUrl = 'localhost:8088/bookmark';
+  static String baseUrl = 'http://localhost:8088/bookmark';
   static Map<String, String> headers = {
     'userId': '[userId]',
     'password': '[password]',

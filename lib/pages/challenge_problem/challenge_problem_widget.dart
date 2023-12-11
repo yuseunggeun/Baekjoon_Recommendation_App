@@ -513,56 +513,112 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                        child: Text(
-                          widget.tags!.toList().toString(),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                      Container(
+                        width: 363.0,
+                        height: 79.0,
+                        decoration: const BoxDecoration(),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
+                          child: Text(
+                            widget.tags!.toList().toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed(
-                      'challengeSuccess',
-                      queryParameters: {
-                        'difficulty': serializeParam(
-                          widget.difficulty,
-                          ParamType.int,
-                        ),
-                      }.withoutNulls,
-                    );
-                  },
-                  text: '문제 해결',
-                  options: FFButtonOptions(
-                    height: 40.0,
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 30.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed(
+                          'challengeSuccess',
+                          queryParameters: {
+                            'difficulty': serializeParam(
+                              widget.difficulty,
+                              ParamType.int,
+                            ),
+                            'title': serializeParam(
+                              widget.title,
+                              ParamType.String,
+                            ),
+                            'problemId': serializeParam(
+                              widget.problemId,
+                              ParamType.int,
+                            ),
+                            'successTime': serializeParam(
+                              FFAppState().solveTimer.solveTime.ms -
+                                  _model.solveTimerMilliseconds,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      text: '문제 해결',
+                      options: FFButtonOptions(
+                        height: 50.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
                         ),
-                    elevation: 3.0,
-                    borderSide: const BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 50.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('challengeFail');
+                      },
+                      text: '문제 포기',
+                      options: FFButtonOptions(
+                        height: 52.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0xFFC0BDE3),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

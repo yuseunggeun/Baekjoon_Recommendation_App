@@ -109,11 +109,43 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                             ),
                       ),
                     ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          setState(() {
+                            _model.tagList = [];
+                          });
+                        },
+                        text: '전부 삭제',
+                        options: FFButtonOptions(
+                          height: 40.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: const Color(0xFFE2E2F0),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context).error,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 5.0, 5.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -155,7 +187,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 5.0, 10.0, 5.0),
                             child: Text(
-                              'dp',
+                              '다이나믹 프로그래밍',
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -207,7 +239,237 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 5.0, 10.0, 5.0),
                             child: Text(
-                              'math',
+                              '수학',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('string')
+                              ? true
+                              : false) {
+                            setState(() {
+                              _model.removeFromTagList('string');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('string');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('string')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '문자열',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('implementation')
+                              ? true
+                              : false) {
+                            setState(() {
+                              _model.removeFromTagList('implementation');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('implementation');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('implementation')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '구현',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('greedy')
+                              ? true
+                              : false) {
+                            setState(() {
+                              _model.removeFromTagList('greedy');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('greedy');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('greedy')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '그리디',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('trees') ? true : false) {
+                            setState(() {
+                              _model.removeFromTagList('trees');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('trees');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('trees')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '트리',
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -259,7 +521,61 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 5.0, 10.0, 5.0),
                             child: Text(
-                              'sort',
+                              '정렬',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('graphs')
+                              ? true
+                              : false) {
+                            setState(() {
+                              _model.removeFromTagList('graphs');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('graphs');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('graphs')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '그래프',
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -276,72 +592,153 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  children: [],
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('binary_search')
+                              ? true
+                              : false) {
+                            setState(() {
+                              _model.removeFromTagList('binary_search');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('binary_search');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('binary_search')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '이분탐색',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (_model.tagList.contains('data_structures')
+                              ? true
+                              : false) {
+                            setState(() {
+                              _model.removeFromTagList('data_structures');
+                            });
+                          } else {
+                            setState(() {
+                              _model.addToTagList('data_structures');
+                            });
+                          }
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeIn,
+                          decoration: BoxDecoration(
+                            color: _model.tagList.contains('data_structures')
+                                ? const Color(0xFF7668F1)
+                                : FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                            borderRadius: BorderRadius.circular(15.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              width: 3.0,
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 5.0),
+                            child: Text(
+                              '자료구조',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                FFAppState().searchCondition.tags.length.toString(),
-                style: FlutterFlowTheme.of(context).bodyMedium,
-              ),
-              Text(
-                _model.tagList.length.toString(),
-                style: FlutterFlowTheme.of(context).bodyMedium,
-              ),
-              FFButtonWidget(
-                onPressed: () async {
-                  setState(() {
-                    _model.tagList = [];
-                  });
-                },
-                text: 'clear tag',
-                options: FFButtonOptions(
-                  height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Readex Pro',
-                        color: Colors.white,
-                      ),
-                  elevation: 3.0,
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    setState(() {
+                      FFAppState().updateSearchConditionStruct(
+                        (e) => e..tags = _model.tagList.toList(),
+                      );
+                    });
+                    context.safePop();
+                  },
+                  text: '설정 완료',
+                  options: FFButtonOptions(
+                    height: 52.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(40.0, 10.0, 40.0, 10.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                          fontSize: 24.0,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              FFButtonWidget(
-                onPressed: () async {
-                  setState(() {
-                    FFAppState().updateSearchConditionStruct(
-                      (e) => e..tags = _model.tagList.toList(),
-                    );
-                  });
-                  context.safePop();
-                },
-                text: '설정 완료',
-                options: FFButtonOptions(
-                  height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Readex Pro',
-                        color: Colors.white,
-                      ),
-                  elevation: 3.0,
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ],

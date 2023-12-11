@@ -190,6 +190,10 @@ class _UpdateBookmarkMemoWidgetState extends State<UpdateBookmarkMemoWidget> {
                             );
                             if ((_model.apiResult?.succeeded ?? true)) {
                               Navigator.pop(context);
+                              if (Navigator.of(context).canPop()) {
+                                context.pop();
+                              }
+                              context.pushNamed('BookmarkPage');
                             } else {
                               await showDialog(
                                 context: context,

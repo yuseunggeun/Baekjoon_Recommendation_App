@@ -527,7 +527,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     });
 
                                                     context
-                                                        .pushNamed('HomePage');
+                                                        .pushNamed('MainPage');
                                                   } else {
                                                     await showDialog(
                                                       context: context,
@@ -945,7 +945,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     });
 
                                                     context
-                                                        .pushNamed('HomePage');
+                                                        .pushNamed('MainPage');
                                                   } else {
                                                     await showDialog(
                                                       context: context,

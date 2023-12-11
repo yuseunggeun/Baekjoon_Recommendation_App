@@ -112,6 +112,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/challengeSuccess',
           builder: (context, params) => ChallengeSuccessWidget(
             difficulty: params.getParam('difficulty', ParamType.int),
+            title: params.getParam('title', ParamType.String),
+            problemId: params.getParam('problemId', ParamType.int),
+            successTime: params.getParam('successTime', ParamType.int),
           ),
         ),
         FFRoute(

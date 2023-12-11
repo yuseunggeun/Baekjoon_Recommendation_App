@@ -168,7 +168,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               FFButtonWidget(
-                onPressed: () async {},
+                onPressed: () {
+                  print('Button pressed ...');
+                },
                 text: '타이머 설정',
                 options: FFButtonOptions(
                   height: 40.0,
