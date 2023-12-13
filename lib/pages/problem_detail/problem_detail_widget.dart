@@ -459,7 +459,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  width: 256.0,
+                                  width: 239.0,
                                   height: 43.0,
                                   decoration: const BoxDecoration(),
                                   child: AutoSizeText(
