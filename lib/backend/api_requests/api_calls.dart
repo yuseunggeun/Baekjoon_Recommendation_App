@@ -84,7 +84,7 @@ class TestCall {
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
-      decodeUtf8: false,
+      decodeUtf8: true,
       cache: false,
     );
   }
@@ -299,7 +299,7 @@ class UpdateBookmarkCall {
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
-      encodeBodyUtf8: false,
+      encodeBodyUtf8: true,
       decodeUtf8: true,
       cache: false,
     );
@@ -311,11 +311,101 @@ class UpdateBookmarkCall {
 /// Start solved Group Code
 
 class SolvedGroup {
-  static String baseUrl = 'localhost:8088/solved';
+  static String baseUrl = 'http://localhost:8088/solved';
   static Map<String, String> headers = {
     'userId': '[userId]',
     'password': '[password]',
   };
+  static GetSolvesCall getSolvesCall = GetSolvesCall();
+  static AddSolvedCall addSolvedCall = AddSolvedCall();
+  static UpdateSolvedCall updateSolvedCall = UpdateSolvedCall();
+}
+
+class GetSolvesCall {
+  Future<ApiCallResponse> call({
+    String? userId = '',
+    String? password = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getSolves',
+      apiUrl: '${SolvedGroup.baseUrl}/solve',
+      callType: ApiCallType.GET,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+class AddSolvedCall {
+  Future<ApiCallResponse> call({
+    int? problemId,
+    String? title = '',
+    int? diffuculty,
+    int? elapsedTime,
+    String? userId = '',
+    String? password = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "problemId": $problemId,
+  "title": "$title",
+  "difficulty": $diffuculty,
+  "elapsedTime": $elapsedTime
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'addSolved',
+      apiUrl: '${SolvedGroup.baseUrl}/$problemId',
+      callType: ApiCallType.POST,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: true,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
+}
+
+class UpdateSolvedCall {
+  Future<ApiCallResponse> call({
+    int? solvedId,
+    String? memo = '',
+    String? userId = '',
+    String? password = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "memo": "$memo"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'updateSolved',
+      apiUrl: '${SolvedGroup.baseUrl}/$solvedId',
+      callType: ApiCallType.PUT,
+      headers: {
+        'userId': '$userId',
+        'password': '$password',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: true,
+      decodeUtf8: true,
+      cache: false,
+    );
+  }
 }
 
 /// End solved Group Code

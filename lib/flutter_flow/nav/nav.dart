@@ -103,11 +103,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'clearProblem',
-          path: '/clearProblem',
-          builder: (context, params) => const ClearProblemWidget(),
-        ),
-        FFRoute(
           name: 'challengeSuccess',
           path: '/challengeSuccess',
           builder: (context, params) => ChallengeSuccessWidget(

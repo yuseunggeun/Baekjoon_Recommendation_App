@@ -5,26 +5,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'update_bookmark_memo_model.dart';
-export 'update_bookmark_memo_model.dart';
+import 'update_solved_memo_model.dart';
+export 'update_solved_memo_model.dart';
 
-class UpdateBookmarkMemoWidget extends StatefulWidget {
-  const UpdateBookmarkMemoWidget({
+class UpdateSolvedMemoWidget extends StatefulWidget {
+  const UpdateSolvedMemoWidget({
     super.key,
-    required this.bookmarkId,
+    required this.solvedId,
     required this.memo,
   });
 
-  final int? bookmarkId;
+  final int? solvedId;
   final String? memo;
 
   @override
-  _UpdateBookmarkMemoWidgetState createState() =>
-      _UpdateBookmarkMemoWidgetState();
+  _UpdateSolvedMemoWidgetState createState() => _UpdateSolvedMemoWidgetState();
 }
 
-class _UpdateBookmarkMemoWidgetState extends State<UpdateBookmarkMemoWidget> {
-  late UpdateBookmarkMemoModel _model;
+class _UpdateSolvedMemoWidgetState extends State<UpdateSolvedMemoWidget> {
+  late UpdateSolvedMemoModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +34,7 @@ class _UpdateBookmarkMemoWidgetState extends State<UpdateBookmarkMemoWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => UpdateBookmarkMemoModel());
+    _model = createModel(context, () => UpdateSolvedMemoModel());
 
     _model.inputMemoController ??= TextEditingController(text: widget.memo);
     _model.inputMemoFocusNode ??= FocusNode();
@@ -189,12 +188,11 @@ class _UpdateBookmarkMemoWidgetState extends State<UpdateBookmarkMemoWidget> {
                                     16.0, 16.0, 16.0, 44.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    _model.apiResult = await BookmarkGroup
-                                        .updateBookmarkCall
-                                        .call(
+                                    _model.apiResult =
+                                        await SolvedGroup.updateSolvedCall.call(
                                       userId: FFAppState().userData.userId,
                                       password: FFAppState().userData.password,
-                                      bookmarkId: widget.bookmarkId,
+                                      solvedId: widget.solvedId,
                                       memo: _model.inputMemoController.text,
                                     );
                                     if ((_model.apiResult?.succeeded ?? true)) {
@@ -202,7 +200,7 @@ class _UpdateBookmarkMemoWidgetState extends State<UpdateBookmarkMemoWidget> {
                                       if (Navigator.of(context).canPop()) {
                                         context.pop();
                                       }
-                                      context.pushNamed('BookmarkPage');
+                                      context.pushNamed('SolvedPage');
                                     } else {
                                       await showDialog(
                                         context: context,

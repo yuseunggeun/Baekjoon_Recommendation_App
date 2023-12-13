@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/tier_img/tier01/tier01_widget.dart';
 import '/tier_img/tier02/tier02_widget.dart';
@@ -104,6 +105,8 @@ class ChallengeSuccessModel extends FlutterFlowModel<ChallengeSuccessWidget> {
   late Tier29Model tier29Model;
   // Model for tier30 component.
   late Tier30Model tier30Model;
+  // Stores action output result for [Backend Call - API (addBookmark)] action in Button widget.
+  ApiCallResponse? addBookmarkRes;
 
   /// Initialization and disposal methods.
 

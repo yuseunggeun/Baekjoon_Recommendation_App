@@ -126,7 +126,7 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
@@ -609,7 +609,7 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
                                               ),
                                             ),
                                             duration:
-                                                const Duration(milliseconds: 4000),
+                                                const Duration(milliseconds: 2000),
                                             backgroundColor:
                                                 FlutterFlowTheme.of(context)
                                                     .secondary,

@@ -141,7 +141,7 @@ class _SetSolveTimePopupWidgetState extends State<SetSolveTimePopupWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
-                      if (_model.setTime!.second >= 59 ? true : false) {
+                      if (!(_model.setTime!.second >= 59 ? true : false)) {
                         setState(() {
                           _model.updateSetTimeStruct(
                             (e) => e..incrementSecond(1),
@@ -316,7 +316,7 @@ class _SetSolveTimePopupWidgetState extends State<SetSolveTimePopupWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
-                      if (_model.setTime!.second <= 0 ? true : false) {
+                      if (!(_model.setTime!.second <= 0 ? true : false)) {
                         setState(() {
                           _model.updateSetTimeStruct(
                             (e) => e..incrementSecond(-1),

@@ -593,7 +593,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 50.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           _model.addBookmarkRes =
@@ -618,7 +618,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: const Duration(milliseconds: 2000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).secondary,
                               ),
@@ -671,7 +671,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 50.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed(

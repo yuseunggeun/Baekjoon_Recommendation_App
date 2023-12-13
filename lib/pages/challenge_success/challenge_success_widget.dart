@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -387,33 +388,125 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('MainPage');
-                  },
-                  text: '메인화면으로',
-                  options: FFButtonOptions(
-                    height: 76.0,
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                          fontSize: 24.0,
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 100.0, 20.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        _model.addBookmarkRes =
+                            await BookmarkGroup.addBookmarkCall.call(
+                          userId: FFAppState().userData.userId,
+                          password: FFAppState().userData.password,
+                          problemId: widget.problemId,
+                          title: widget.title,
+                          difficulty: widget.difficulty,
+                          solveCount: 0,
+                        );
+                        if ((_model.addBookmarkRes?.succeeded ?? true)) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                '북마크 추가 완료',
+                                style: TextStyle(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
+                              ),
+                              duration: const Duration(milliseconds: 2000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
+                            ),
+                          );
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: const Text('alert'),
+                                content: Text(getJsonField(
+                                  (_model.addBookmarkRes?.jsonBody ?? ''),
+                                  r'''$["message"]''',
+                                ).toString()),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: const Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+
+                        setState(() {});
+                      },
+                      text: '북마크하기',
+                      options: FFButtonOptions(
+                        height: 76.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0xFF39AAEF),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
                         ),
-                    elevation: 3.0,
-                    borderSide: const BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 100.0, 20.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await SolvedGroup.addSolvedCall.call(
+                          userId: FFAppState().userData.userId,
+                          password: FFAppState().userData.password,
+                          problemId: widget.problemId,
+                          title: widget.title,
+                          diffuculty: widget.difficulty,
+                          elapsedTime: widget.successTime,
+                        );
+
+                        context.pushNamed('MainPage');
+                      },
+                      text: '메인화면으로',
+                      options: FFButtonOptions(
+                        height: 76.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
