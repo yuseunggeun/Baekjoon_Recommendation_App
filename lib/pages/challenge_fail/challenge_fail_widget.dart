@@ -89,7 +89,7 @@ class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 500.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 400.0, 0.0, 0.0),
                 child: Container(
                   width: 204.0,
                   height: 100.0,

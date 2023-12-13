@@ -56,7 +56,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            '메인화면',
+            'Baekjoon Supporter',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,

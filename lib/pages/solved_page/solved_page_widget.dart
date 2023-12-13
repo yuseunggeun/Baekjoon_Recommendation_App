@@ -33,6 +33,7 @@ import '/tier_img/tier27/tier27_widget.dart';
 import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -176,7 +177,7 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                           final bookmarksItem = bookmarks[bookmarksIndex];
                           return Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 5.0),
+                                0.0, 0.0, 0.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -459,12 +460,13 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                                 Flexible(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: 162.0,
-                                        height: 36.0,
+                                        width: 147.0,
+                                        height: 21.0,
                                         decoration: const BoxDecoration(),
                                         alignment:
                                             const AlignmentDirectional(-1.00, 0.00),
@@ -478,8 +480,8 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Readex Pro',
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.w500,
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
@@ -489,6 +491,8 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                                         decoration: const BoxDecoration(),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               getJsonField(
@@ -507,32 +511,39 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                                   ),
                                 ),
                                 Container(
-                                  width: 96.0,
-                                  height: 60.0,
+                                  width: 115.0,
+                                  height: 65.0,
                                   decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 10.0),
-                                        child: Text(
-                                          'Hello World',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontSize: 16.0,
-                                              ),
+                                      Text(
+                                        valueOrDefault<String>(
+                                          functions.msToString(getJsonField(
+                                            bookmarksItem,
+                                            r'''$["elapsedTime"]''',
+                                          )),
+                                          '0',
                                         ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                       ),
                                       Text(
-                                        getJsonField(
+                                        (String str) {
+                                          return str.replaceAll("T", "\n");
+                                        }(getJsonField(
                                           bookmarksItem,
                                           r'''$["solvedTime"]''',
-                                        ).toString(),
+                                        ).toString()),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),

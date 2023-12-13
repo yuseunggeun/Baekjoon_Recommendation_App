@@ -194,7 +194,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -246,7 +246,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -308,7 +308,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -362,7 +362,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -416,7 +416,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -476,7 +476,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -528,7 +528,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -582,7 +582,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -644,7 +644,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -698,7 +698,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),

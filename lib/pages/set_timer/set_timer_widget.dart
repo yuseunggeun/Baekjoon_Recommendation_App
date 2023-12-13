@@ -138,12 +138,12 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Text(
                         '문제 풀이 시간을 설정합니다',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 30.0,
+                              fontSize: 26.0,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
@@ -600,56 +600,63 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                       ],
                     ),
                   ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed(
-                        'challengeProblem',
-                        queryParameters: {
-                          'title': serializeParam(
-                            widget.title,
-                            ParamType.String,
-                          ),
-                          'problemId': serializeParam(
-                            widget.problemId,
-                            ParamType.int,
-                          ),
-                          'difficulty': serializeParam(
-                            widget.difficulty,
-                            ParamType.int,
-                          ),
-                          'tags': serializeParam(
-                            widget.tags,
-                            ParamType.String,
-                            true,
-                          ),
-                          'tagOpen': serializeParam(
-                            _model.switchValue,
-                            ParamType.bool,
-                          ),
-                        }.withoutNulls,
-                      );
-                    },
-                    text: '문제 풀이',
-                    options: FFButtonOptions(
-                      height: 40.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
-                      elevation: 3.0,
-                      borderSide: const BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
+                Container(
+                  width: 144.0,
+                  height: 81.0,
+                  decoration: const BoxDecoration(),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed(
+                          'challengeProblem',
+                          queryParameters: {
+                            'title': serializeParam(
+                              widget.title,
+                              ParamType.String,
+                            ),
+                            'problemId': serializeParam(
+                              widget.problemId,
+                              ParamType.int,
+                            ),
+                            'difficulty': serializeParam(
+                              widget.difficulty,
+                              ParamType.int,
+                            ),
+                            'tags': serializeParam(
+                              widget.tags,
+                              ParamType.String,
+                              true,
+                            ),
+                            'tagOpen': serializeParam(
+                              _model.switchValue,
+                              ParamType.bool,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      text: '문제 풀이',
+                      options: FFButtonOptions(
+                        height: 0.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ),

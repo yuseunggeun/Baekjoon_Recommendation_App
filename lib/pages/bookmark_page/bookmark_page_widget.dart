@@ -183,7 +183,7 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
                           final bookmarksItem = bookmarks[bookmarksIndex];
                           return Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 5.0),
+                                0.0, 0.0, 0.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -471,10 +471,10 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
                                     children: [
                                       Container(
                                         width: 212.0,
-                                        height: 36.0,
+                                        height: 24.0,
                                         decoration: const BoxDecoration(),
                                         alignment:
-                                            const AlignmentDirectional(-1.00, 0.00),
+                                            const AlignmentDirectional(-1.00, -1.00),
                                         child: Text(
                                           getJsonField(
                                             bookmarksItem,
@@ -486,7 +486,7 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 16.0,
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
@@ -496,6 +496,8 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
                                         decoration: const BoxDecoration(),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               getJsonField(

@@ -551,7 +551,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 30.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           _model.solveTimerController.onStopTimer();
@@ -604,7 +604,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 50.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           _model.solveTimerController.onStopTimer();
