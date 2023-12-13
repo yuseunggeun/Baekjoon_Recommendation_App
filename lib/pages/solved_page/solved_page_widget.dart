@@ -36,6 +36,7 @@ import '/tier_img/tier29/tier29_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -483,25 +484,30 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Container(
-                                        width: 147.0,
-                                        height: 21.0,
-                                        decoration: const BoxDecoration(),
-                                        alignment:
-                                            const AlignmentDirectional(-1.00, 0.00),
-                                        child: Text(
-                                          getJsonField(
-                                            bookmarksItem,
-                                            r'''$["title"]''',
-                                          ).toString(),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontSize: 18.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 3.0),
+                                        child: Container(
+                                          width: 147.0,
+                                          height: 21.0,
+                                          decoration: const BoxDecoration(),
+                                          alignment:
+                                              const AlignmentDirectional(-1.00, 0.00),
+                                          child: AutoSizeText(
+                                            getJsonField(
+                                              bookmarksItem,
+                                              r'''$["title"]''',
+                                            ).toString(),
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                            minFontSize: 10.0,
+                                          ),
                                         ),
                                       ),
                                       Padding(

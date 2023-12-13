@@ -33,6 +33,7 @@ import '/tier_img/tier27/tier27_widget.dart';
 import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -528,7 +529,7 @@ class _SearchResultWidgetState extends State<SearchResultWidget>
                                           width: 289.0,
                                           height: 36.0,
                                           decoration: const BoxDecoration(),
-                                          child: Text(
+                                          child: AutoSizeText(
                                             getJsonField(
                                               searchResultItem,
                                               r'''$["title"]''',
@@ -541,6 +542,7 @@ class _SearchResultWidgetState extends State<SearchResultWidget>
                                                   fontSize: 20.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
+                                            minFontSize: 10.0,
                                           ),
                                         ),
                                         Container(

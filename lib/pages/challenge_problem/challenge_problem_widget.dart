@@ -633,7 +633,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: 350.0,
+                          width: MediaQuery.sizeOf(context).width * 0.9,
                           height: 70.0,
                           decoration: const BoxDecoration(),
                           child: Padding(

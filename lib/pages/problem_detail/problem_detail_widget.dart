@@ -34,6 +34,7 @@ import '/tier_img/tier27/tier27_widget.dart';
 import '/tier_img/tier28/tier28_widget.dart';
 import '/tier_img/tier29/tier29_widget.dart';
 import '/tier_img/tier30/tier30_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -457,18 +458,24 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget>
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  getJsonField(
-                                    _model.detailJSON,
-                                    r'''$["title"]''',
-                                  ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 30.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                Container(
+                                  width: 256.0,
+                                  height: 43.0,
+                                  decoration: const BoxDecoration(),
+                                  child: AutoSizeText(
+                                    getJsonField(
+                                      _model.detailJSON,
+                                      r'''$["title"]''',
+                                    ).toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 30.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                    minFontSize: 10.0,
+                                  ),
                                 ),
                                 Text(
                                   widget.problemId.toString(),
