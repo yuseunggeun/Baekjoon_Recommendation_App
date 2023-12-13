@@ -144,7 +144,7 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 26.0,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                       ),
                     ),
@@ -359,6 +359,7 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 24.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Text(
@@ -393,6 +394,7 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 20.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),
@@ -483,6 +485,7 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 20.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),
@@ -524,6 +527,7 @@ class _SetTimerWidgetState extends State<SetTimerWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 20.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                         ),

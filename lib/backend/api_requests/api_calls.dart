@@ -9,7 +9,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start problem Group Code
 
 class ProblemGroup {
-  static String baseUrl = 'http://localhost:8088/problem';
+  static String baseUrl = 'http://43.201.181.135:8088/problem';
   static Map<String, String> headers = {};
   static ProblemSearchCall problemSearchCall = ProblemSearchCall();
   static GetProblemDetailCall getProblemDetailCall = GetProblemDetailCall();
@@ -95,7 +95,7 @@ class TestCall {
 /// Start user Group Code
 
 class UserGroup {
-  static String baseUrl = 'http://localhost:8088/user';
+  static String baseUrl = 'http://43.201.181.135:8088/user';
   static Map<String, String> headers = {};
   static LoginCall loginCall = LoginCall();
   static SignupCall signupCall = SignupCall();
@@ -160,7 +160,7 @@ class SignupCall {
 /// Start bookmark Group Code
 
 class BookmarkGroup {
-  static String baseUrl = 'http://localhost:8088/bookmark';
+  static String baseUrl = 'http://43.201.181.135:8088/bookmark';
   static Map<String, String> headers = {
     'userId': '[userId]',
     'password': '[password]',
@@ -311,7 +311,7 @@ class UpdateBookmarkCall {
 /// Start solved Group Code
 
 class SolvedGroup {
-  static String baseUrl = 'http://localhost:8088/solved';
+  static String baseUrl = 'http://43.201.181.135:8088/solved';
   static Map<String, String> headers = {
     'userId': '[userId]',
     'password': '[password]',

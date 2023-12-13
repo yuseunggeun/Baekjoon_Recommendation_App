@@ -30,22 +30,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const LoginPageWidget(),
+      errorBuilder: (context, state) => const SolvedPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const LoginPageWidget(),
-        ),
-        FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => const HomePageWidget(),
-        ),
-        FFRoute(
-          name: 'apiTest',
-          path: '/apiTest',
-          builder: (context, params) => const ApiTestWidget(),
+          builder: (context, _) => const SolvedPageWidget(),
         ),
         FFRoute(
           name: 'MainPage',
@@ -116,11 +106,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'challengeFail',
           path: '/challengeFail',
           builder: (context, params) => const ChallengeFailWidget(),
-        ),
-        FFRoute(
-          name: 'test',
-          path: '/test',
-          builder: (context, params) => const TestWidget(),
         ),
         FFRoute(
           name: 'loginPage',

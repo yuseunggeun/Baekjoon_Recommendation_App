@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/update_bookmark_memo_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -37,6 +38,7 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'bookmark_page_model.dart';
 export 'bookmark_page_model.dart';
@@ -48,10 +50,27 @@ class BookmarkPageWidget extends StatefulWidget {
   _BookmarkPageWidgetState createState() => _BookmarkPageWidgetState();
 }
 
-class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
+class _BookmarkPageWidgetState extends State<BookmarkPageWidget>
+    with TickerProviderStateMixin {
   late BookmarkPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'listViewOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -653,7 +672,8 @@ class _BookmarkPageWidgetState extends State<BookmarkPageWidget> {
                             ),
                           );
                         },
-                      );
+                      ).animateOnPageLoad(
+                          animationsMap['listViewOnPageLoadAnimation']!);
                     },
                   ),
                 ),

@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -35,6 +36,7 @@ import '/tier_img/tier30/tier30_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'challenge_success_model.dart';
 export 'challenge_success_model.dart';
@@ -60,10 +62,100 @@ class ChallengeSuccessWidget extends StatefulWidget {
   _ChallengeSuccessWidgetState createState() => _ChallengeSuccessWidgetState();
 }
 
-class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
+class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget>
+    with TickerProviderStateMixin {
   late ChallengeSuccessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 400.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 800.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 800.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -130,7 +222,7 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 20.0),
                 child: Text(
                   '축하합니다!',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -138,7 +230,7 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                         fontSize: 60.0,
                         fontWeight: FontWeight.w500,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -163,7 +255,7 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 40.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               ),
               Container(
                 width: 100.0,
@@ -361,7 +453,8 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                     }
                   },
                 ),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation']!),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -372,7 +465,8 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                           fontFamily: 'Readex Pro',
                           fontSize: 30.0,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation3']!),
                 ],
               ),
               Row(
@@ -385,128 +479,150 @@ class _ChallengeSuccessWidgetState extends State<ChallengeSuccessWidget> {
                           fontFamily: 'Readex Pro',
                           fontSize: 30.0,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation4']!),
                 ],
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(30.0, 100.0, 20.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        _model.addBookmarkRes =
-                            await BookmarkGroup.addBookmarkCall.call(
-                          userId: FFAppState().userData.userId,
-                          password: FFAppState().userData.password,
-                          problemId: widget.problemId,
-                          title: widget.title,
-                          difficulty: widget.difficulty,
-                          solveCount: 0,
-                        );
-                        if ((_model.addBookmarkRes?.succeeded ?? true)) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                '북마크 추가 완료',
-                                style: TextStyle(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                ),
-                              ),
-                              duration: const Duration(milliseconds: 2000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).secondary,
-                            ),
-                          );
-                        } else {
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return AlertDialog(
-                                title: const Text('alert'),
-                                content: Text(getJsonField(
-                                  (_model.addBookmarkRes?.jsonBody ?? ''),
-                                  r'''$["message"]''',
-                                ).toString()),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: const Text('Ok'),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: 134.0,
+                      height: 80.0,
+                      decoration: const BoxDecoration(),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.addBookmarkRes =
+                                await BookmarkGroup.addBookmarkCall.call(
+                              userId: FFAppState().userData.userId,
+                              password: FFAppState().userData.password,
+                              problemId: widget.problemId,
+                              title: widget.title,
+                              difficulty: widget.difficulty,
+                              solveCount: 0,
+                            );
+                            if ((_model.addBookmarkRes?.succeeded ?? true)) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    '북마크 추가 완료',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
                                   ),
-                                ],
+                                  duration: const Duration(milliseconds: 2000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
                               );
-                            },
-                          );
-                        }
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: const Text('alert'),
+                                    content: Text(getJsonField(
+                                      (_model.addBookmarkRes?.jsonBody ?? ''),
+                                      r'''$["message"]''',
+                                    ).toString()),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: const Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
 
-                        setState(() {});
-                      },
-                      text: '북마크하기',
-                      options: FFButtonOptions(
-                        height: 76.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: const Color(0xFF39AAEF),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            setState(() {});
+                          },
+                          text: '북마크하기',
+                          options: FFButtonOptions(
+                            height: 73.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: const Color(0xFF39AAEF),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                        elevation: 3.0,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation1']!),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 100.0, 20.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        await SolvedGroup.addSolvedCall.call(
-                          userId: FFAppState().userData.userId,
-                          password: FFAppState().userData.password,
-                          problemId: widget.problemId,
-                          title: widget.title,
-                          diffuculty: widget.difficulty,
-                          elapsedTime: widget.successTime,
-                        );
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      child: Container(
+                        width: 145.0,
+                        height: 81.0,
+                        decoration: const BoxDecoration(),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await SolvedGroup.addSolvedCall.call(
+                              userId: FFAppState().userData.userId,
+                              password: FFAppState().userData.password,
+                              problemId: widget.problemId,
+                              title: widget.title,
+                              diffuculty: widget.difficulty,
+                              elapsedTime: widget.successTime,
+                            );
 
-                        context.pushNamed('MainPage');
-                      },
-                      text: '메인화면으로',
-                      options: FFButtonOptions(
-                        height: 76.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            context.pushNamed('MainPage');
+                          },
+                          text: '메인화면으로',
+                          options: FFButtonOptions(
+                            height: 54.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                        elevation: 3.0,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation2']!),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

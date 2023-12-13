@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'challenge_fail_model.dart';
 export 'challenge_fail_model.dart';
@@ -14,10 +16,38 @@ class ChallengeFailWidget extends StatefulWidget {
   _ChallengeFailWidgetState createState() => _ChallengeFailWidgetState();
 }
 
-class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
+class _ChallengeFailWidgetState extends State<ChallengeFailWidget>
+    with TickerProviderStateMixin {
   late ChallengeFailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -83,8 +113,10 @@ class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 30.0,
+                            fontWeight: FontWeight.w600,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation']!),
                   ],
                 ),
               ),
@@ -93,9 +125,7 @@ class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
                 child: Container(
                   width: 204.0,
                   height: 100.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
+                  decoration: const BoxDecoration(),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.pushNamed('MainPage');
@@ -121,7 +151,8 @@ class _ChallengeFailWidgetState extends State<ChallengeFailWidget> {
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['buttonOnPageLoadAnimation']!),
                 ),
               ),
             ],

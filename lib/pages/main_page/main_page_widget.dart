@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'main_page_model.dart';
 export 'main_page_model.dart';
@@ -14,10 +16,66 @@ class MainPageWidget extends StatefulWidget {
   _MainPageWidgetState createState() => _MainPageWidgetState();
 }
 
-class _MainPageWidgetState extends State<MainPageWidget> {
+class _MainPageWidgetState extends State<MainPageWidget>
+    with TickerProviderStateMixin {
   late MainPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'buttonOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 100.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 100.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 300.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -83,9 +141,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     child: Container(
                       width: 150.0,
                       height: 150.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
+                      decoration: const BoxDecoration(),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('SetCondition');
@@ -103,6 +159,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontWeight: FontWeight.w500,
                                   ),
                           elevation: 3.0,
                           borderSide: const BorderSide(
@@ -111,7 +168,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation1']!),
                     ),
                   ),
                   Padding(
@@ -120,9 +178,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     child: Container(
                       width: 150.0,
                       height: 150.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
+                      decoration: const BoxDecoration(),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('BookmarkPage');
@@ -140,6 +196,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontWeight: FontWeight.w500,
                                   ),
                           elevation: 3.0,
                           borderSide: const BorderSide(
@@ -148,7 +205,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation2']!),
                     ),
                   ),
                 ],
@@ -163,9 +221,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     child: Container(
                       width: 150.0,
                       height: 150.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
+                      decoration: const BoxDecoration(),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('searchResult');
@@ -183,6 +239,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontWeight: FontWeight.w500,
                                   ),
                           elevation: 3.0,
                           borderSide: const BorderSide(
@@ -191,7 +248,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation3']!),
                     ),
                   ),
                   Padding(
@@ -200,9 +258,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                     child: Container(
                       width: 150.0,
                       height: 150.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
+                      decoration: const BoxDecoration(),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed('SolvedPage');
@@ -220,6 +276,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontWeight: FontWeight.w500,
                                   ),
                           elevation: 3.0,
                           borderSide: const BorderSide(
@@ -228,7 +285,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation4']!),
                     ),
                   ),
                 ],

@@ -1,9 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'tag_page_model.dart';
 export 'tag_page_model.dart';
@@ -15,10 +17,102 @@ class TagPageWidget extends StatefulWidget {
   _TagPageWidgetState createState() => _TagPageWidgetState();
 }
 
-class _TagPageWidgetState extends State<TagPageWidget> {
+class _TagPageWidgetState extends State<TagPageWidget>
+    with TickerProviderStateMixin {
   late TagPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 400.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 600.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 700.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 700.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation5': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 800.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 800.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 1200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -89,8 +183,9 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 24.0,
+                        fontWeight: FontWeight.w600,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
@@ -106,6 +201,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 24.0,
+                              fontWeight: FontWeight.w600,
                             ),
                       ),
                     ),
@@ -142,7 +238,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 5.0, 5.0),
@@ -254,7 +350,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
@@ -424,7 +520,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation3']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
@@ -590,7 +686,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation4']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 5.0),
@@ -706,7 +802,7 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                       ),
                     ),
                   ],
-                ),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation5']!),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -739,7 +835,8 @@ class _TagPageWidgetState extends State<TagPageWidget> {
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['buttonOnPageLoadAnimation']!),
               ),
             ],
           ),

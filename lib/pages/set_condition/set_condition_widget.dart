@@ -1,4 +1,5 @@
 import '/components/concat_selection_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,6 +8,7 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'set_condition_model.dart';
 export 'set_condition_model.dart';
@@ -25,10 +27,167 @@ class SetConditionWidget extends StatefulWidget {
   _SetConditionWidgetState createState() => _SetConditionWidgetState();
 }
 
-class _SetConditionWidgetState extends State<SetConditionWidget> {
+class _SetConditionWidgetState extends State<SetConditionWidget>
+    with TickerProviderStateMixin {
   late SetConditionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 100.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: const Offset(-100.0, 0.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: const Offset(100.0, 0.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 300.ms),
+        MoveEffect(
+          curve: Curves.easeIn,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: const Offset(-100.0, 0.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 300.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: const Offset(100.0, 0.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 600.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -150,6 +309,7 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           fontSize: 24.0,
+                          fontWeight: FontWeight.w600,
                         ),
                   ),
                 ),
@@ -168,6 +328,7 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),
@@ -181,11 +342,20 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          context.pushNamed('tagPage');
+                          context.pushNamed(
+                            'tagPage',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                              ),
+                            },
+                          );
                         },
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation1']!),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -202,7 +372,8 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               fontFamily: 'Readex Pro',
                               color: const Color(0x6114181B),
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
                     ),
                   ],
                 ),
@@ -221,6 +392,7 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),
@@ -273,7 +445,8 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation2']!),
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
@@ -290,8 +463,10 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
                       ),
                     ],
                   ),
@@ -351,9 +526,11 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
+                          textAlign: TextAlign.center,
                           validator: _model.textController1Validator
                               .asValidator(context),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textFieldOnPageLoadAnimation1']!),
                       ),
                     ),
                     Expanded(
@@ -408,9 +585,11 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
+                          textAlign: TextAlign.center,
                           validator: _model.textController2Validator
                               .asValidator(context),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textFieldOnPageLoadAnimation2']!),
                       ),
                     ),
                   ],
@@ -430,8 +609,10 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation3']!),
                       ),
                     ],
                   ),
@@ -495,9 +676,11 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
+                            textAlign: TextAlign.center,
                             validator: _model.textController3Validator
                                 .asValidator(context),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textFieldOnPageLoadAnimation3']!),
                         ),
                       ),
                       Expanded(
@@ -553,9 +736,11 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
+                            textAlign: TextAlign.center,
                             validator: _model.textController4Validator
                                 .asValidator(context),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textFieldOnPageLoadAnimation4']!),
                         ),
                       ),
                     ],
@@ -588,7 +773,7 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                         text: '설정 완료',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.5,
-                          height: 40.0,
+                          height: 51.0,
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 2.0, 24.0, 0.0),
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -606,7 +791,8 @@ class _SetConditionWidgetState extends State<SetConditionWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation']!),
                     ),
                   ],
                 ),

@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
@@ -36,6 +37,7 @@ import '/tier_img/tier30/tier30_widget.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'challenge_problem_model.dart';
@@ -61,10 +63,111 @@ class ChallengeProblemWidget extends StatefulWidget {
   _ChallengeProblemWidgetState createState() => _ChallengeProblemWidgetState();
 }
 
-class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
+class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget>
+    with TickerProviderStateMixin {
   late ChallengeProblemModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'progressBarOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation5': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(0.0, -16.0),
+          end: const Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation6': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -195,7 +298,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                   fontSize: 40.0,
                                 ),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['progressBarOnPageLoadAnimation']!),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -389,7 +493,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                             },
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation1']!),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -407,7 +512,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                   ),
                         ),
                       ],
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['rowOnPageLoadAnimation2']!),
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -425,7 +531,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                   ),
                         ),
                       ],
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['rowOnPageLoadAnimation3']!),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
@@ -440,7 +547,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 24.0,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Row(
@@ -477,7 +584,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                             ],
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation4']!),
                     ),
                     Padding(
                       padding:
@@ -493,7 +601,7 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 24.0,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           if (!widget.tagOpen)
@@ -511,7 +619,8 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                               },
                             ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation5']!),
                     ),
                   ],
                 ),
@@ -521,11 +630,11 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: 363.0,
-                          height: 79.0,
+                          width: 350.0,
+                          height: 70.0,
                           decoration: const BoxDecoration(),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
@@ -539,102 +648,111 @@ class _ChallengeProblemWidgetState extends State<ChallengeProblemWidget> {
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation']!),
                           ),
                         ),
                       ],
                     ),
                   ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.solveTimerController.onStopTimer();
-                          _model.tagTimerController.onStopTimer();
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.solveTimerController.onStopTimer();
+                            _model.tagTimerController.onStopTimer();
 
-                          context.pushNamed(
-                            'challengeSuccess',
-                            queryParameters: {
-                              'difficulty': serializeParam(
-                                widget.difficulty,
-                                ParamType.int,
-                              ),
-                              'title': serializeParam(
-                                widget.title,
-                                ParamType.String,
-                              ),
-                              'problemId': serializeParam(
-                                widget.problemId,
-                                ParamType.int,
-                              ),
-                              'successTime': serializeParam(
-                                FFAppState().solveTimer.solveTime.ms -
-                                    _model.solveTimerMilliseconds,
-                                ParamType.int,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                        text: '문제 해결',
-                        options: FFButtonOptions(
-                          height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: const BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                            context.pushNamed(
+                              'challengeSuccess',
+                              queryParameters: {
+                                'difficulty': serializeParam(
+                                  widget.difficulty,
+                                  ParamType.int,
+                                ),
+                                'title': serializeParam(
+                                  widget.title,
+                                  ParamType.String,
+                                ),
+                                'problemId': serializeParam(
+                                  widget.problemId,
+                                  ParamType.int,
+                                ),
+                                'successTime': serializeParam(
+                                  FFAppState().solveTimer.solveTime.ms -
+                                      _model.solveTimerMilliseconds,
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          text: '문제 해결',
+                          options: FFButtonOptions(
+                            height: 50.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.solveTimerController.onStopTimer();
-                          _model.tagTimerController.onStopTimer();
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.solveTimerController.onStopTimer();
+                            _model.tagTimerController.onStopTimer();
 
-                          context.pushNamed('challengeFail');
-                        },
-                        text: '문제 포기',
-                        options: FFButtonOptions(
-                          height: 52.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFFC0BDE3),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 1.0,
+                            context.pushNamed('challengeFail');
+                          },
+                          text: '문제 포기',
+                          options: FFButtonOptions(
+                            height: 52.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: const Color(0xFFE3BDBE),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation6']!),
                 ),
               ],
             ),

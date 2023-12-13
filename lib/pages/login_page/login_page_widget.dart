@@ -25,29 +25,39 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
     'columnOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
+          curve: Curves.easeIn,
+          delay: 600.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 60.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        TiltEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(-0.349, 0),
-          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -55,25 +65,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
+          curve: Curves.easeIn,
+          delay: 600.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 60.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        TiltEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(-0.349, 0),
-          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -175,13 +171,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     child: Text(
                                       'Baekjoon_Supporter',
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineMedium,
+                                          .headlineMedium
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
                         ),
                         Container(
                           width: double.infinity,
@@ -263,7 +264,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       ),
                                     ),
                                   ],
-                                ),
+                                ).animateOnPageLoad(
+                                    animationsMap['rowOnPageLoadAnimation']!),
                                 if (_model.create == false)
                                   Align(
                                     alignment: const AlignmentDirectional(0.00, 0.00),
@@ -526,8 +528,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       );
                                                     });
 
-                                                    context
-                                                        .pushNamed('MainPage');
+                                                    context.pushNamed(
+                                                      'MainPage',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                        ),
+                                                      },
+                                                    );
                                                   } else {
                                                     await showDialog(
                                                       context: context,
@@ -944,8 +956,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       );
                                                     });
 
-                                                    context
-                                                        .pushNamed('MainPage');
+                                                    context.pushNamed(
+                                                      'MainPage',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                        ),
+                                                      },
+                                                    );
                                                   } else {
                                                     await showDialog(
                                                       context: context,

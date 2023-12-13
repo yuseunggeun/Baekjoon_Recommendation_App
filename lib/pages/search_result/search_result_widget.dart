@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -35,6 +36,7 @@ import '/tier_img/tier30/tier30_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'search_result_model.dart';
 export 'search_result_model.dart';
@@ -46,10 +48,26 @@ class SearchResultWidget extends StatefulWidget {
   _SearchResultWidgetState createState() => _SearchResultWidgetState();
 }
 
-class _SearchResultWidgetState extends State<SearchResultWidget> {
+class _SearchResultWidgetState extends State<SearchResultWidget>
+    with TickerProviderStateMixin {
   late SearchResultModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'listViewOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -176,7 +194,7 @@ class _SearchResultWidgetState extends State<SearchResultWidget> {
                               searchResult[searchResultIndex];
                           return Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 5.0),
+                                0.0, 0.0, 0.0, 10.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -521,6 +539,7 @@ class _SearchResultWidgetState extends State<SearchResultWidget> {
                                                 .override(
                                                   fontFamily: 'Readex Pro',
                                                   fontSize: 20.0,
+                                                  fontWeight: FontWeight.w600,
                                                 ),
                                           ),
                                         ),
@@ -535,7 +554,11 @@ class _SearchResultWidgetState extends State<SearchResultWidget> {
                                             ).toString(),
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 16.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -546,7 +569,8 @@ class _SearchResultWidgetState extends State<SearchResultWidget> {
                             ),
                           );
                         },
-                      );
+                      ).animateOnPageLoad(
+                          animationsMap['listViewOnPageLoadAnimation']!);
                     },
                   ),
                 ),

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/update_solved_memo_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -38,6 +39,7 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'solved_page_model.dart';
 export 'solved_page_model.dart';
@@ -49,10 +51,27 @@ class SolvedPageWidget extends StatefulWidget {
   _SolvedPageWidgetState createState() => _SolvedPageWidgetState();
 }
 
-class _SolvedPageWidgetState extends State<SolvedPageWidget> {
+class _SolvedPageWidgetState extends State<SolvedPageWidget>
+    with TickerProviderStateMixin {
   late SolvedPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'listViewOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -485,26 +504,30 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                                               ),
                                         ),
                                       ),
-                                      Container(
-                                        width: 137.0,
-                                        height: 33.0,
-                                        decoration: const BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              getJsonField(
-                                                bookmarksItem,
-                                                r'''$["problemId"]''',
-                                              ).toString(),
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ],
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 137.0,
+                                          height: 28.0,
+                                          decoration: const BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                getJsonField(
+                                                  bookmarksItem,
+                                                  r'''$["problemId"]''',
+                                                ).toString(),
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -611,7 +634,8 @@ class _SolvedPageWidgetState extends State<SolvedPageWidget> {
                             ),
                           );
                         },
-                      );
+                      ).animateOnPageLoad(
+                          animationsMap['listViewOnPageLoadAnimation']!);
                     },
                   ),
                 ),

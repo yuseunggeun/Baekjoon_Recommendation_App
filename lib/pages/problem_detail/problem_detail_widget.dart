@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -36,6 +37,7 @@ import '/tier_img/tier30/tier30_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'problem_detail_model.dart';
 export 'problem_detail_model.dart';
@@ -58,10 +60,86 @@ class ProblemDetailWidget extends StatefulWidget {
   _ProblemDetailWidgetState createState() => _ProblemDetailWidgetState();
 }
 
-class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
+class _ProblemDetailWidgetState extends State<ProblemDetailWidget>
+    with TickerProviderStateMixin {
   late ProblemDetailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 100.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation5': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -389,6 +467,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         fontSize: 30.0,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                 ),
                                 Text(
@@ -416,7 +495,8 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation']!),
                     ),
                     Padding(
                       padding:
@@ -432,6 +512,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 30.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Padding(
@@ -451,7 +532,8 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
@@ -467,6 +549,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 30.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Padding(
@@ -486,7 +569,8 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation2']!),
                     ),
                     Padding(
                       padding:
@@ -502,6 +586,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 30.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Padding(
@@ -521,7 +606,8 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation3']!),
                     ),
                     Padding(
                       padding:
@@ -537,6 +623,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 30.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Padding(
@@ -555,7 +642,8 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation4']!),
                     ),
                     Padding(
                       padding:
@@ -571,6 +659,7 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 30.0,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Padding(
@@ -589,7 +678,8 @@ class _ProblemDetailWidgetState extends State<ProblemDetailWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation5']!),
                     ),
                     Padding(
                       padding:
