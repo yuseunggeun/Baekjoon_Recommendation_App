@@ -1,7 +1,13 @@
-# fullstack
+# Baekjoon_Supporter
 
-A new Flutter project.
+2023 풀스택서비스프로그래밍 프로젝트(클라이언트)
 
-## Getting Started
+## 설명
 
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+FlutterFlow로 개발한 플러터 어플리케이션 프로젝트입니다.  
+검색 조건을 설정하여 백준 문제를 검색할 수 있습니다.  
+문제 타이머와 북마크, 해결한 문제 기록을 확인할 수 있습니다.
+
+## 서비스
+
+
